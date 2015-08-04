@@ -10,7 +10,8 @@ Q3D.gui = {
       o: 1,
       l: false
     },
-    i: Q3D.application.showInfo.bind(Q3D.application)
+    i: Q3D.application.showInfo.bind(Q3D.application),
+	a: Q3D.application.showAbout.bind(Q3D.application)
   },
 
   // initialize gui
@@ -22,21 +23,29 @@ Q3D.gui = {
       this.addLayersFolder();
       //this.addCustomPlaneFolder();
       this.addHelpButton();
+	  this.addAboutButton();
     }
   },
 
   addLayersFolder: function () {
     var parameters = this.parameters;
-    var layersFolder = this.gui.addFolder('Layers');
+    //var layersFolder = this.gui.addFolder('Layers');
+	var layersFolder = this.gui;
 
     var visibleChanged = function (value) { project.layers[this.object.i].setVisible(value); };
     var opacityChanged = function (value) { project.layers[this.object.i].setOpacity(value); };
     var sideVisibleChanged = function (value) { project.layers[this.object.i].setSideVisibility(value); };
 
     project.layers.forEach(function (layer, i) {
+
+	  if (layer.name.substring(0,3) != "Wor") {
+		return;
+	  }
+
       parameters.lyr[i] = {i: i, v: layer.visible, o: layer.opacity};
-      var folder = layersFolder.addFolder(layer.name);
-      folder.add(parameters.lyr[i], 'v').name('Visible').onChange(visibleChanged);
+      //var folder = layersFolder.addFolder(layer.name);
+	  var folder = layersFolder;
+      //folder.add(parameters.lyr[i], 'v').name('Show original barrow').onChange(visibleChanged);
 
       if (layer.type == Q3D.LayerType.DEM) {
         var itemName = '';
@@ -119,6 +128,10 @@ Q3D.gui = {
     });
   },
 
+  addAboutButton: function () {
+    this.gui.add(this.parameters, 'a').name('About');
+  },
+  
   addHelpButton: function () {
     this.gui.add(this.parameters, 'i').name('Help');
   }

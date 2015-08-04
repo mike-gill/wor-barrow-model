@@ -560,6 +560,15 @@ Q3D.application = {
     Q3D.$("usage").innerHTML = this.help();
     this.popup.show();
   },
+  
+  showAbout: function () {
+    var r = [];
+	r.push('<h2>About</h2>');
+	r.push('<p>This model was created by using the contours on Pitt River\'s superb original</p>');
+	r.push('plan of Wor Barrow</p>');
+	r.push('<p>Created by Mike Gill</p>');
+    this.popup.show(r.join(""));
+  },
 
   showQueryResult: function (point, layerId, featureId) {
     var layer, r = [];
