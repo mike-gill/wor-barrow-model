@@ -564,8 +564,10 @@ Q3D.application = {
   showAbout: function () {
     var r = [];
 	r.push('<h2>About</h2>');
-	r.push('<p>This model was created by using the contours on Pitt River\'s superb original</p>');
-	r.push('plan of Wor Barrow</p>');
+	r.push('<p>The plan for this 3D model of Wor Barrow is from Pitt-River\'s excellent') 
+	r.push('published work ...The contours on the plan were used to create a Digital Elevation Model (DEM) of Wor Barrow. ');
+    r.push('<b>NOTE: you can use the opacity slider to alter the transparency of the DEM and reveal the excavated features.</b>');
+	r.push('You can also click on the model to get the height at that point.  See the help for more details.</p>');
 	r.push('<p>Created by Mike Gill</p>');
     this.popup.show(r.join(""));
   },
