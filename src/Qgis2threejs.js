@@ -563,12 +563,24 @@ Q3D.application = {
   
   showAbout: function () {
     var r = [];
-	r.push('<h2>About</h2>');
-	r.push('<p>The plan for this 3D model of Wor Barrow is from Pitt-River\'s excellent') 
-	r.push('published work ...The contours on the plan were used to create a Digital Elevation Model (DEM) of Wor Barrow. ');
-    r.push('<b>NOTE: you can use the opacity slider to alter the transparency of the DEM and reveal the excavated features.</b>');
+	r.push('<div class="info"><h1>About</h1>');
+	r.push('<p>The plan for this 3D model of Wor Barrow is from Pitt-River\'s excellent');
+	r.push('work <a href="http://babel.hathitrust.org/cgi/pt?id=mdp.39015030657889;view=1up;seq=151" target="_blank">Excavations in Cranborne Chase, near Rushmore v.4</a>.  ');
+	r.push('The contours on the plan were used to create a Digital Elevation Model (DEM) of Wor Barrow. ');
+    r.push('<p><b>NOTE: you can use the opacity slider to alter the transparency of the DEM and reveal the excavated features.</b>');
 	r.push('You can also click on the model to get the height at that point.  See the help for more details.</p>');
-	r.push('<p>Created by Mike Gill</p>');
+    r.push('<p>This page was made with <a href="http://www.qgis.org/" target="_blank">QGIS</a> and ');
+	r.push('<a href="https://github.com/minorua/Qgis2threejs" target="_blank">Qgis2threejs</a> plugin, and uses the following libraries:');
+    r.push('<ul>');
+    r.push('<li>three.js <a href="http://threejs.org/" target="_blank">http://threejs.org/</a> ');
+	r.push('<a href="./threejs/LICENSE" target="_blank" class="license">(LICENSE)</a></li>');
+    r.push('<li>dat-gui <a href="https://code.google.com/p/dat-gui/" target="_blank">https://code.google.com/p/dat-gui/</a> ');
+	r.push('<a href="./dat-gui/license.txt" target="_blank" class="license">(LICENSE)</a></li>');
+    r.push('<li id="lib_proj4js" style="display: none;">Proj4js <a href="http://trac.osgeo.org/proj4js/" target="_blank">http://trac.osgeo.org/proj4js/</a> ');
+	r.push('<a href="./proj4js/LICENSE.md" target="_blank" class="license">(LICENSE)</a></li>');
+    r.push('</ul>');
+	r.push('<p>Page created by <b>Mike Gill</b> of <b>Avon Valley Archaeological Society</b> <a href="https://twitter.com/AvonValleyArch" class="twitter-follow-button" data-show-count="false">Follow @AvonValleyArch</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?\'http\':\'https\';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+\'://platform.twitter.com/widgets.js\';fjs.parentNode.insertBefore(js,fjs);}}(document, \'script\', \'twitter-wjs\');</script></p>');
+    r.push('</p></div>');
     this.popup.show(r.join(""));
   },
 
